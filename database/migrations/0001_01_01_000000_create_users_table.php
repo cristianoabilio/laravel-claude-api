@@ -1,5 +1,7 @@
 <?php
 
+use App\Enum\RoleEnum;
+use App\Enum\UserStatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('photo')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('role')->default(RoleEnum::USER);
+            $table->string('address')->nullable();
+            $table->string('status')->default(UserStatusEnum::ACTIVE);
             $table->rememberToken();
             $table->timestamps();
         });

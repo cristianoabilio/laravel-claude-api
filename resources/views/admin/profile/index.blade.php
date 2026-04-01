@@ -48,123 +48,133 @@
                             <div class="tab-content text-muted bg-white">
                                  <div class="tab-pane active pt-4" id="profile_setting" role="tabpanel">
                                     <div class="row">
-                                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
+
                                             <div class="row">
-                                                <div class="col-lg-6 col-xl-6">
-                                                    <div class="card border mb-0">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                            <div class="card border mb-0">
 
-                                                        <div class="card-header">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h4 class="card-title mb-0">Personal Information</h4>
-                                                                </div><!--end col-->
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="card-body">
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label" for="name">Name</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control  @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $user->name) }}">
-                                                                    @error('name')
-                                                                        <small class="text-danger">{{ $message }}</small>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label" for="email">Email</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-text"><i class="mdi mdi-phone-outline"></i></span>
-                                                                        <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email"  id="email" name="email" aria-describedby="basic-addon1" value="{{ old('email', $user->email) }}">
-                                                                        @error('email')
-                                                                            <small class="text-danger">{{ $message }}</small>
-                                                                        @enderror
+                                                                <div class="card-header">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <h4 class="card-title mb-0">Personal Information</h4>
+                                                                        </div><!--end col-->
                                                                     </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label" for="phone">Phone</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-text"><i class="mdi mdi-phone-outline"></i></span>
-                                                                        <input class="form-control" type="text" placeholder="Phone"  id="phone" name="phone" aria-describedby="basic-addon1" value="{{ old('phone', $user->phone) }}">
+                                                                <div class="card-body">
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="name">Name</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control  @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $user->name) }}">
+                                                                            @error('name')
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="email">Email</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-text"><i class="mdi mdi-phone-outline"></i></span>
+                                                                                <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email"  id="email" name="email" aria-describedby="basic-addon1" value="{{ old('email', $user->email) }}">
+                                                                                @error('email')
+                                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="phone">Phone</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-text"><i class="mdi mdi-phone-outline"></i></span>
+                                                                                <input class="form-control" type="text" placeholder="Phone"  id="phone" name="phone" aria-describedby="basic-addon1" value="{{ old('phone', $user->phone) }}">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="address">Address</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control" type="text" id="address" name="address" value="{{ old('address', $user->address) }}">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="photo">Profile Photo</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control" type="file" id="image" name="photo">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label"></label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <img id="showImage" src="{{ (! empty($user->photo)) ? url('upload/user_images/' . $user->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                                </div><!--end card-body-->
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <form action="{{ route('admin.change.password') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="card border mb-0">
+
+                                                                <div class="card-header">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <h4 class="card-title mb-0">Change Password</h4>
+                                                                        </div><!--end col-->
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="card-body mb-0">
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="old_password">Old Password</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control @error('old_password') is-invalid @enderror" type="password" name="old_password" id="old_password" placeholder="Old Password">
+                                                                            @error('old_password')
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="password">New Password</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="New Password">
+                                                                            @error('password')
+                                                                                <small class="text-danger">{{ $message }}</small>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group mb-3 row">
+                                                                        <label class="form-label" for="password_confirmation">Confirm Password</label>
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <div class="col-lg-12 col-xl-12">
+                                                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                                                            <button type="button" class="btn btn-danger">Cancel</button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div><!--end card-body-->
                                                             </div>
-
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label" for="address">Address</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control" type="text" id="address" name="address" value="{{ old('address', $user->address) }}">
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label" for="photo">Profile Photo</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control" type="file" id="image" name="photo">
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label"></label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <img id="showImage" src="{{ (! empty($user->photo)) ? url('upload/user_images/' . $user->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
-                                                                </div>
-                                                            </div>
-                                                            <button type="submit" class="btn btn-primary">Save</button>
-                                                        </div><!--end card-body-->
+                                                        </form>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-xl-6">
-                                                    <div class="card border mb-0">
-
-                                                        <div class="card-header">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h4 class="card-title mb-0">Change Password</h4>
-                                                                </div><!--end col-->
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="card-body mb-0">
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label">Old Password</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control" type="password" placeholder="Old Password">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label">New Password</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control" type="password" placeholder="New Password">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group mb-3 row">
-                                                                <label class="form-label">Confirm Password</label>
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <input class="form-control" type="password" placeholder="Confirm Password">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                                <div class="col-lg-12 col-xl-12">
-                                                                    <button type="submit" class="btn btn-primary">Change Password</button>
-                                                                    <button type="button" class="btn btn-danger">Cancel</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div><!--end card-body-->
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </form>
                                     </div>

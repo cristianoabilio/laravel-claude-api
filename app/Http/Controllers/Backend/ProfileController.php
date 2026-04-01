@@ -8,7 +8,9 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -96,6 +98,38 @@ class ProfileController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        if (! Hash::check($request->old_password, $user->password)) {
+            $notification = [
+                'type' => 'error',
+                'message' => 'Old password does not match.'
+            ];
+
+            return redirect()->back()->with($notification);
+        }
+
+        User::find($user->id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        Auth::logout();
+
+        $notification = [
+            'type' => 'success',
+            'message' => 'Password updated successfully.'
+        ];
+
+        return redirect()->route('login')->with($notification);
     }
 
     private function deletePhoto(string $oldPhotoPath): void

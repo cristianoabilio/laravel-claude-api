@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/profile', [BackendProfileController::class, 'index'])->name('admin.profile');
     Route::post('/admin/profile', [BackendProfileController::class, 'update'])->name('admin.profile.update');
+    Route::post('/admin/change-password', [BackendProfileController::class, 'changePassword'])->name('admin.change.password');
 });
 
 require __DIR__.'/auth.php';

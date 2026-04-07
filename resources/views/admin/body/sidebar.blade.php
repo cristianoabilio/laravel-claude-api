@@ -47,16 +47,31 @@
                 <li>
                     <a href="#sidebarAuth" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
-                        <span> Authentication </span>
+                        <span> Reviews </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarAuth">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="auth-login.html" class="tp-link">Log In</a>
+                                <a href="{{ route('reviews.all') }}" class="tp-link">All Reviews</a>
                             </li>
                             <li>
-                                <a href="auth-register.html" class="tp-link">Register</a>
+                                <a href="{{ route('review.add') }}" class="tp-link">Add Review</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarAuth" data-bs-toggle="collapse">
+                        <i data-feather="users"></i>
+                        <span> Slider </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarAuth">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('sliders.edit', '1') }}" class="tp-link">Edit Slider</a>
                             </li>
                         </ul>
                     </div>

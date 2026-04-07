@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\FeaturesController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
@@ -33,8 +34,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/reviews/update', [ReviewController::class, 'update'])->name('review.update');
 
     Route::controller(SliderController::class)->group(function () {
-        Route::get('/admin/slider/{id}', 'edit')->name('sliders.edit');
+        Route::get('/admin/slider/edit/{id}', 'edit')->name('sliders.edit');
         Route::post('/admin/slider/update', 'update')->name('sliders.update');
+    });
+
+    Route::controller(FeaturesController::class)->group(function () {
+        Route::get('/admin/features', 'index')->name('features.all');
+        Route::get('/admin/features/edit/{id}',  'edit')->name('features.edit');
+        Route::get('/admin/features/create', 'create')->name('features.add');
+        Route::get('/admin/features/delete/{id}', 'destroy')->name('features.delete');
+        Route::post('/admin/features/store', 'store')->name('feature.store');
+        Route::post('/admin/features/update', 'update')->name('feature.update');
     });
 });
 

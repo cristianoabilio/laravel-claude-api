@@ -45,12 +45,12 @@
                 <li class="menu-title">Pages</li>
 
                 <li>
-                    <a href="#sidebarAuth" data-bs-toggle="collapse">
-                        <i data-feather="users"></i>
+                    <a href="#reviews" data-bs-toggle="collapse">
+                        <i data-feather="reviews"></i>
                         <span> Reviews </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarAuth">
+                    <div class="collapse" id="reviews">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('reviews.all') }}" class="tp-link">All Reviews</a>
@@ -63,20 +63,37 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarAuth" data-bs-toggle="collapse">
-                        <i data-feather="users"></i>
+                    <a href="#sideBarSlider" data-bs-toggle="collapse">
+                        <i data-feather="sideBarSlider"></i>
                         <span> Slider </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarAuth">
+                    <div class="collapse" id="sideBarSlider">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('sliders.edit', '1') }}" class="tp-link">Edit Slider</a>
+                                <a href="{{ route('sliders.edit', 1) }}" class="tp-link">Edit Slider</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
+                <li>
+                    <a href="#features" data-bs-toggle="collapse">
+                        <i data-feather="features"></i>
+                        <span> Features </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="features">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('features.all') }}" class="tp-link">All Features</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('features.add') }}" class="tp-link">Add Feature</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

@@ -94,6 +94,24 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#features" data-bs-toggle="collapse">
+                        <i data-feather="features"></i>
+                        <span> Clarifies </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="features">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('clarifies.all') }}" class="tp-link">All Clarifies</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('clarifies.add') }}" class="tp-link">Add Clarify</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

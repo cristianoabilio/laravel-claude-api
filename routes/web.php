@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\ClarifiesController;
 use App\Http\Controllers\Backend\FeaturesController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\Backend\ReviewController;
@@ -45,6 +46,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/features/delete/{id}', 'destroy')->name('features.delete');
         Route::post('/admin/features/store', 'store')->name('feature.store');
         Route::post('/admin/features/update', 'update')->name('feature.update');
+    });
+
+    Route::controller(ClarifiesController::class)->group(function () {
+        Route::get('/admin/clarifies', 'index')->name('clarifies.all');
+        Route::get('/admin/clarifies/edit/{id}', 'edit')->name('clarifies.edit');
+        Route::get('/admin/clarifies/create', 'create')->name('clarifies.add');
+        Route::post('/admin/clarifies/store', 'store')->name('clarifies.store');
+        Route::post('/admin/clarifies/update', 'update')->name('clarifies.update');
+        Route::get('/admin/clarifies/delete/{id}', 'destroy')->name('clarifies.delete');
     });
 });
 

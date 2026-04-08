@@ -7,7 +7,7 @@
         <div class="container-xxl">
             <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
                 <div class="flex-grow-1">
-                    <h4 class="fs-18 fw-semibold m-0">Reviews</h4>
+                    <h4 class="fs-18 fw-semibold m-0">Clarifies</h4>
                 </div>
             </div>
 
@@ -33,20 +33,20 @@
                                             <tr>
                                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 195px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Sl</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 345px;" aria-label="Position: activate to sort column ascending">Title</th>
-                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 73px;" aria-label="Age: activate to sort column ascending">Icon</th>
-                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 143px;" aria-label="Start date: activate to sort column ascending">Message</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 73px;" aria-label="Age: activate to sort column ascending">Image</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 143px;" aria-label="Start date: activate to sort column ascending">Description</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 102px;" aria-label="Salary: activate to sort column ascending">Actions</th></tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($features as $item)
+                                                @foreach ($clarifies as $item)
                                                     <tr class="odd">
                                                         <td class="">{{ $item->id }}</td>
                                                         <td>{{ $item->title }}</td>
-                                                        <td><img src="{{ (! empty($item->icon)) ? asset('backend/' . $item->icon) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile"></td>
+                                                        <td><img src="{{ (! empty($item->image)) ? url('upload/clarifies/' . $item->image) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile"></td>
                                                         <td>{{ Str::limit($item->description, 50, '...') }}</td>
                                                         <td>
-                                                            <a href="{{ route('features.edit', $item->id) }}" class="btn btn-success">Edit</a>
-                                                            <a href="{{ route('features.delete', $item->id) }}" id="delete" class="btn btn-danger">Delete</a>
+                                                            <a href="{{ route('clarifies.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                                                            <a href="{{ route('clarifies.delete', $item->id) }}" id="delete" class="btn btn-danger">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

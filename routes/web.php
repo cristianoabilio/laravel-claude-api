@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\FeaturesController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,17 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/clarifies/update', 'update')->name('clarifies.update');
         Route::get('/admin/clarifies/delete/{id}', 'destroy')->name('clarifies.delete');
     });
+
+
+    Route::controller(UsabilityController::class)->group(function () {
+        Route::get('/admin/usabilities', 'index')->name('usabilities.index');
+        Route::get('/admin/usabilities/edit/{id}', 'edit')->name('usabilities.edit');
+        Route::get('/admin/usabilities/create', 'create')->name('usabilities.create');
+        Route::post('/admin/usabilities/store', 'store')->name('usabilities.store');
+        Route::post('/admin/usabilities/update', 'update')->name('usabilities.update');
+        Route::get('/admin/usabilities/delete/{id}', 'destroy')->name('usabilities.destroy');
+    });
+
 });
 
 require __DIR__.'/auth.php';

@@ -96,18 +96,36 @@
                 </li>
 
                 <li>
-                    <a href="#features" data-bs-toggle="collapse">
-                        <i data-feather="features"></i>
+                    <a href="#clarifies" data-bs-toggle="collapse">
+                        <i data-feather="clarifies"></i>
                         <span> Clarifies </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="features">
+                    <div class="collapse" id="clarifies">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('clarifies.all') }}" class="tp-link">All Clarifies</a>
                             </li>
                             <li>
                                 <a href="{{ route('clarifies.add') }}" class="tp-link">Add Clarify</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#usability" data-bs-toggle="collapse">
+                        <i data-feather="usability"></i>
+                        <span> Usability </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="usability">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('usabilities.index') }}" class="tp-link">All Usabilities</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('usabilities.create') }}" class="tp-link">Add Usability</a>
                             </li>
                         </ul>
                     </div>

@@ -130,6 +130,24 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#Connect" data-bs-toggle="collapse">
+                        <i data-feather="Connect"></i>
+                        <span> Connect </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="Connect">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('connects.index') }}" class="tp-link">All Connects</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('connects.create') }}" class="tp-link">Add Connect</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

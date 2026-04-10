@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ClarifiesController;
+use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeaturesController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\Backend\ReviewController;
@@ -66,6 +67,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/usabilities/store', 'store')->name('usabilities.store');
         Route::post('/admin/usabilities/update', 'update')->name('usabilities.update');
         Route::get('/admin/usabilities/delete/{id}', 'destroy')->name('usabilities.destroy');
+    });
+
+    Route::controller(ConnectController::class)->group(function () {
+        Route::get('/admin/connects', 'index')->name('connects.index');
+        Route::get('/admin/connects/edit/{id}', 'edit')->name('connects.edit');
+        Route::get('/admin/connects/create', 'create')->name('connects.create');
+        Route::post('/admin/connects/store', 'store')->name('connects.store');
+        Route::post('/admin/connects/update', 'update')->name('connects.update');
+        Route::get('/admin/connects/delete/{id}', 'destroy')->name('connects.destroy');
     });
 
 });

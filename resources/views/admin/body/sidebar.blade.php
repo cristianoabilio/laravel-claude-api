@@ -148,6 +148,24 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#faq" data-bs-toggle="collapse">
+                        <i data-feather="faq"></i>
+                        <span> FAQ </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="faq">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('faqs.index') }}" class="tp-link">All answers</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('faqs.create') }}" class="tp-link">Add Answer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

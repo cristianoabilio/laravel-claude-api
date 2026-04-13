@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AnswerController;
 use App\Http\Controllers\Backend\ClarifiesController;
 use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeaturesController;
@@ -76,6 +77,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/connects/store', 'store')->name('connects.store');
         Route::post('/admin/connects/update', 'update')->name('connects.update');
         Route::get('/admin/connects/delete/{id}', 'destroy')->name('connects.destroy');
+    });
+
+    Route::controller(AnswerController::class)->group(function () {
+        Route::get('/admin/faqs', 'index')->name('faqs.index');
+        Route::get('/admin/faqs/edit/{id}', 'edit')->name('faqs.edit');
+        Route::get('/admin/faqs/create', 'create')->name('faqs.create');
+        Route::post('/admin/faqs/store', 'store')->name('faqs.store');
+        Route::post('/admin/faqs/update', 'update')->name('faqs.update');
+        Route::get('/admin/faqs/delete/{id}', 'destroy')->name('faqs.destroy');
     });
 
 });

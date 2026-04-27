@@ -166,6 +166,24 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#team" data-bs-toggle="collapse">
+                        <i data-feather="team"></i>
+                        <span> Team Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="team">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('team.index') }}" class="tp-link">All Members</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('team.create') }}" class="tp-link">Add Member</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

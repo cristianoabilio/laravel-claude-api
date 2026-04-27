@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\FeaturesController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/faqs/store', 'store')->name('faqs.store');
         Route::post('/admin/faqs/update', 'update')->name('faqs.update');
         Route::get('/admin/faqs/delete/{id}', 'destroy')->name('faqs.destroy');
+    });
+
+    Route::controller(TeamController::class)->group(function () {
+        Route::get('/admin/team', 'index')->name('team.index');
+        Route::get('/admin/team/edit/{id}', 'edit')->name('team.edit');
+        Route::get('/admin/team/create', 'create')->name('team.create');
+        Route::post('/admin/team/store', 'store')->name('team.store');
+        Route::post('/admin/team/update', 'update')->name('team.update');
+        Route::get('/admin/team/delete/{id}', 'destroy')->name('team.destroy');
     });
 
 });

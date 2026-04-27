@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AnswerController;
 use App\Http\Controllers\Backend\ClarifiesController;
@@ -96,6 +97,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/team/store', 'store')->name('team.store');
         Route::post('/admin/team/update', 'update')->name('team.update');
         Route::get('/admin/team/delete/{id}', 'destroy')->name('team.destroy');
+    });
+
+    Route::controller(AboutController::class)->group(function () {
+        Route::get('/admin/about-us', 'index')->name('about.index');
+        Route::post('/admin/about-us/update', 'update')->name('about.update');
     });
 
 });

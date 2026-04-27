@@ -184,6 +184,21 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#about" data-bs-toggle="collapse">
+                        <i data-feather="about"></i>
+                        <span> About Page Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="about">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('about.index') }}" class="tp-link">Update</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

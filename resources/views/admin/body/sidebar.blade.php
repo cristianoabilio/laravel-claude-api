@@ -199,6 +199,21 @@
                         </ul>
                     </div>
                 </li>
+
+                <li>
+                    <a href="#blog" data-bs-toggle="collapse">
+                        <i data-feather="blog"></i>
+                        <span> Blog Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="blog">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('blog-category.index') }}" class="tp-link">All Categories</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#sidebarError" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>

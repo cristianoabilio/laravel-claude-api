@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AnswerController;
+use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\ClarifiesController;
 use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeaturesController;
@@ -102,6 +103,15 @@ Route::middleware('auth')->group(function () {
     Route::controller(AboutController::class)->group(function () {
         Route::get('/admin/about-us', 'index')->name('about.index');
         Route::post('/admin/about-us/update', 'update')->name('about.update');
+    });
+
+    Route::controller(BlogCategoryController::class)->group(function () {
+        Route::get('/admin/blog-category', 'index')->name('blog-category.index');
+        Route::get('/admin/blog-category/edit/{id}', 'edit')->name('blog-category.edit');
+        Route::get('/admin/blog-category/create', 'create')->name('blog-category.create');
+        Route::post('/admin/blog-category/store', 'store')->name('blog-category.store');
+        Route::post('/admin/blog-category/update', 'update')->name('blog-category.update');
+        Route::get('/admin/blog-category/delete/{id}', 'destroy')->name('blog-category.destroy');
     });
 
 });
